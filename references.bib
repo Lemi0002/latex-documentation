@@ -1,0 +1,185 @@
+% General information: https://bibtex.eu/
+%
+% Entry types:
+%   article: used for articles in journals or magazines
+%   book: used for complete books
+%   inbook: used for chapters in a book
+%   incollection: used for articles in a collection
+%   inproceedings: used for conference or workshop papers
+%   phdthesis: used for PhD theses
+%   mastersthesis: used for Master's theses
+%   techreport: used for technical reports
+%   manual: used for software manuals or guides
+%
+% Entry fields:
+%   author: the author of the reference
+%   title: the title of the reference
+%   journal: the name of the journal or magazine
+%   year: the year the reference was published
+%   volume: the volume number of the journal or book
+%   pages: the page numbers of the reference
+%   booktitle: the title of the book in which the reference was published (for inbook and incollection references)
+%   editor: the editor of the book in which the reference was published (for book references)
+%   series: the series in which the book was published (for book references)
+%   chapter: the chapter number of the reference (for inbook references)
+%   address: the address of the publisher
+%   edition: the edition of the book
+%   publisher: the name of the publisher
+%   school: the name of the school at which the thesis was written (for phdthesis and mastersthesis references)
+%   institution: the name of the institution that published the report (for techreport references)
+%   howpublished: any special instructions for publishing the reference
+%   note: any additional notes about the reference
+
+@article{article,
+  author = {Peter Adams},
+  title = {The title of the work},
+  journal = {The name of the journal},
+  year = 1993,
+  number = 2,
+  pages = {201-213},
+  month = 7,
+  note = {An optional note},
+  volume = 4,
+}
+
+@book{book,
+  author = {Peter Babington},
+  title = {The title of the work},
+  publisher = {The name of the publisher},
+  year = 1993,
+  volume = 4,
+  series = 10,
+  address = {The address},
+  edition = 3,
+  month = 7,
+  note = {An optional note},
+  isbn = {3257227892},
+}
+
+@booklet{booklet,
+  title = {The title of the work},
+  author = {Peter Caxton},
+  howpublished = {How it was published},
+  address = {The address of the publisher},
+  month = 7,
+  year = 1993,
+  note = {An optional note},
+}
+
+@conference{conference,
+  author = {Peter Draper},
+  title = {The title of the work},
+  booktitle = {The title of the book},
+  year = 1993,
+  editor = {The editor},
+  volume = 4,
+  series = 5,
+  pages = 213,
+  address = {The address of the publisher},
+  month = 7,
+  organization = {The organization},
+  publisher = {The publisher},
+  note = {An optional note},
+}
+
+@inbook{inbook,
+  author = {Peter Eston},
+  title = {The title of the work},
+  chapter = 8,
+  pages = {201-213},
+  publisher = {The name of the publisher},
+  year = 1993,
+  volume = 4,
+  series = 5,
+  address = {The address of the publisher},
+  edition = 3,
+  month = 7,
+  note = {An optional note},
+}
+
+@incollection{incollection,
+  author = {Peter Farindon},
+  title = {The title of the work},
+  booktitle = {The title of the book},
+  publisher = {The name of the publisher},
+  year = 1993,
+  editor = {The editor},
+  volume = 4,
+  series = 5,
+  chapter = 8,
+  pages = {201-213},
+  address = {The address of the publisher},
+  edition = 3,
+  month = 7,
+  note = {An optional note},
+}
+
+@manual{manual,
+  title = {The title of the work},
+  author = {Peter Gainsford},
+  organization = {The organization},
+  address = {The address of the publisher},
+  edition = 3,
+  month = 7,
+  year = 1993,
+  note = {An optional note},
+}
+
+@mastersthesis{mastersthesis,
+  author = {Peter Harwood},
+  title = {The title of the work},
+  school = {The school where the thesis was written},
+  year = 1993,
+  address = {The address of the publisher},
+  month = 7,
+  note = {An optional note},
+}
+
+@misc{misc,
+  author = {Peter Isley},
+  title = {The title of the work},
+  howpublished = {\url{http://www.google.ch}},
+  note = {Zugriffsdatum: 25. September 1985},
+}
+
+@phdthesis{phdthesis,
+  author = {Peter Joslin},
+  title = {The title of the work},
+  school = {The school where the thesis was written},
+  year = 1993,
+  address = {The address of the publisher},
+  month = 7,
+  note = {An optional note},
+}
+
+@proceedings{proceedings,
+  title = {The title of the work},
+  year = 1993,
+  editor = {Peter Kidwelly},
+  volume = 4,
+  series = 5,
+  address = {The address of the publisher},
+  month = 7,
+  organization = {The organization},
+  publisher = {The name of the publisher},
+  note = {An optional note},
+}
+
+@techreport{techreport,
+  author = {Peter Lambert},
+  title = {The title of the work},
+  institution = {The institution that published},
+  year = 1993,
+  number = 2,
+  address = {The address of the publisher},
+  month = 7,
+  note = {An optional note},
+}
+
+@unpublished{unpublished,
+  author = {Peter Marcheford},
+  title = {The title of the work},
+  note = {An optional note},
+  month = 7,
+  year = 1993,
+}

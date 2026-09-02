@@ -1,0 +1,39 @@
+\documentclass[a4paper,twoside,12pt]{book}
+\input{configuration.tex}
+
+\begin{document}
+\frontmatter
+\input{sections/titlepage.tex}
+
+\mbox{}
+\vfill
+\begin{flushleft}
+    This document is created with {\LaTeX} \\
+    The layout is based on Prof. Dr. Andreas Müller's \textit{Partial Differential Equations} lecture notes \\
+    \textbf{Version control:} Commit \commit
+\end{flushleft}
+\newpage
+
+\fancyhead[R]{\textsf{Master Project Thesis}}
+\input{sections/abstract.tex}
+\input{sections/acknowledgement.tex}
+
+\chaptertoc[1]{Contents}
+\tableofcontents
+\input{sections/abbreviations.tex}
+
+\mainmatter
+\input{sections/introduction.tex}
+\input{sections/literature-study.tex}
+\input{sections/results.tex}
+\input{sections/conclusion.tex}
+\input{sections/declaration.tex}
+
+\begin{appendices}
+    \input{sections/appendix.tex}
+\end{appendices}
+
+\chaptertoc[1]{Bibliography}
+\bibliography{references.bib}
+\bibliographystyle{ieeetr}
+\end{document}

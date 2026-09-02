@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install packages
+        run: |
+          sudo apt-get install snapd inkscape fonts-linuxlibertine
+          sudo snap install tectonic
+          sudo pip install matplotlib
+      - name: Build
+        run: |
+          python build.py
+          mv build/main.pdf build/latex-documentation.pdf
+          python build.py --print
+          mv build/main.pdf build/latex-documentation-print.pdf
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-documentation
+          path: |
+            build/latex-documentation.pdf
+            build/latex-documentation-print.pdf

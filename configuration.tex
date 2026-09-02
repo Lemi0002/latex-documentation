@@ -1,0 +1,184 @@
+\usepackage[toc,page]{appendix}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[LY1]{fontenc}
+\usepackage[bottom]{footmisc}
+\usepackage[utf8]{inputenc}
+\usepackage[skip]{parskip}
+\usepackage[section]{placeins}
+\usepackage[table]{xcolor}
+\usepackage[all]{xy}
+\usepackage{hyperref}
+\usepackage{acronym}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{bigstrut}
+\usepackage{blindtext}
+\usepackage{cancel}
+\usepackage{catchfile}
+\usepackage{circuitikz}
+\usepackage{cite}
+\usepackage{datetime2}
+\usepackage{dirtree}
+\usepackage{fancyhdr}
+\usepackage{flafter}
+\usepackage{forloop}
+\usepackage{gensymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{mathptmx}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{paralist}
+\usepackage{pdfpages}
+\usepackage{pgfgantt}
+\usepackage{siunitx}
+\usepackage{slashed}
+\usepackage{standalone}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{textcomp}
+\usepackage{tikz-timing}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{txfonts}
+\usepackage{url}
+\usepackage{xltabular}
+\usepackage{xstring}
+
+\InputIfFileExists{.configuration}{}{}
+\geometry{papersize={210mm,297mm},total={160mm,240mm},top=31mm,bindingoffset=15mm}
+
+\titleformat*{\section}{\Large\bfseries\sffamily}
+\titleformat*{\subsection}{\large\bfseries\sffamily}
+\titleformat*{\subsubsection}{\small\bfseries\sffamily}
+\titleformat{\chapter}[hang]{\normalfont\Huge\bfseries\sffamily}{\thechapter \hspace{20pt}}{0pt}{\Huge}[{\titlerule[1pt]}]
+
+\sisetup{separate-uncertainty}
+\newcommand{\s}[1]{\mathrm{#1}}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\textsf{\thepage}}
+    \renewcommand{\headrulewidth}{0pt}
+}
+\fancypagestyle{fancy}{
+    \fancyhf{}
+    \fancyhead[LE,LO]{\nouppercase{\textnormal{\textsf{\leftmark}}}}
+    \fancyhead[RE,RO]{\nouppercase{\textnormal{\textsf{\rightmark}}}}
+    \fancyfoot[C]{\textsf{\thepage}}
+    \renewcommand{\headrulewidth}{1pt}
+}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{}
+
+\newcommand{\chaptertoc}[2][0]{
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#2}
+    \ifnum #1=0
+        \markboth{#2}{#2}
+        \chapter*{#2}
+    \fi
+}
+
+\renewcommand\_{\textunderscore\allowbreak}
+\renewcommand{\footnoterule}{
+    \kern -3pt
+    \hrule width 0.4\textwidth height 1pt
+    \vspace{4pt}
+    \kern 2pt
+}
+
+\newcommand{\todo}[1]{\textbf{\textcolor{red}{TODO: #1}}\PackageWarning{MissingToDo}{#1}}
+\newcommand{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
+\renewcommand*{\figureautorefname}{Fig.\allowbreak}
+\renewcommand*{\tableautorefname}{Tab.\allowbreak}
+\renewcommand*{\sectionautorefname}{Sec.\allowbreak}
+\renewcommand*{\subsectionautorefname}{Sec.\allowbreak}
+\renewcommand*{\subsubsectionautorefname}{Sec.\allowbreak}
+\renewcommand*{\chapterautorefname}{Chapter\allowbreak}
+
+\newcommand{\code}[1] {\texttt{\$ #1}}
+\newcommand{\codeitem}[1] {\item[\texttt{\$}]{\texttt{#1}}}
+\newenvironment{codeblock}{
+    \begin{compactitem}
+}{
+    \end{compactitem}
+}
+
+\usetikzlibrary{circuits.logic.US}
+\ctikzset{resistors/scale=0.6, capacitors/scale=0.6, inductors/scale=0.6, diodes/scale=0.6, sources/scale=0.8, transistors/scale=0.8, amplifiers/scale=0.8, flipflops/scale=0.8, logic ports/scale=0.8, switches/scale=0.8}
+\ctikzset{tgate scale=0.5}
+\ctikzset{tripoles/mos style=arrows}
+\ctikzset{tripoles/pmos style/nocircle}
+
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\newcommand{\tableheading}[1]{\bf{#1}}
+\NewExpandableDocumentCommand\tablegapx{m}{\noalign{\vskip #1}}
+\NewExpandableDocumentCommand\tablegap{}{\tablegapx{2pt}}
+\newcommand{\tablehlinetop}{\hline\tablegap}
+\newcommand{\tablehlinemid}{\tablegap\hline\tablegap}
+\newcommand{\tablehlinebot}{\tablegap\hline}
+\newcommand{\tableconfig}{\small\centering}
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\tabcolsep}{10pt}
+
+\newcommand{\gitRepository}[3]{
+    \begin{compactitem}
+        \item[\textbf{Desc:}\hspace*{0.05cm}]#1
+        \item[\textbf{URL:}]\url{#2}
+        \item[\textbf{Type:}]#3
+    \end{compactitem}
+}
+
+\abovedisplayskip=14pt plus 3pt minus 3pt
+\abovedisplayshortskip=14pt plus 3pt
+\belowdisplayskip=14pt plus 3pt minus 3pt
+\belowdisplayshortskip=14pt plus 3pt minus 3pt
+\setlength{\headheight}{15pt}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+% Git hash extraction
+\IfFileExists{.git/HEAD}{
+    \CatchFileDef{\headfull}{.git/HEAD}{}
+    \StrGobbleRight{\headfull}{1}[\head]
+    \StrBehind[2]{\head}{/}[\branch]
+    \IfFileExists{.git/refs/heads/\branch}{
+        \CatchFileDef{\commitlong}{.git/refs/heads/\branch}{}
+        \newcommand{\commit}{0x\StrGobbleRight{\commitlong}{34}}
+    }{
+        \newcommand{\commit}{-}
+    }
+}{
+    \newcommand{\commit}{-}
+}
+
+% Blue links for the PDF and black links for printing
+\ifdefined\printMode
+    \hypersetup{
+        colorlinks=true,
+        linktoc=all,
+        linkcolor=black,
+        citecolor=black,
+        urlcolor=blue,
+    }
+\else
+    \hypersetup{
+        colorlinks=true,
+        linktoc=all,
+        linkcolor=blue,
+        citecolor=blue,
+        urlcolor=blue,
+        bookmarksnumbered=true,
+    }
+\fi
