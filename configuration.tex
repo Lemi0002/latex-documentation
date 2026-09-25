@@ -23,6 +23,8 @@
 \usepackage{cite}
 \usepackage{datetime2}
 \usepackage{dirtree}
+\usepackage{etoolbox}
+\usepackage{expl3}
 \usepackage{fancyhdr}
 \usepackage{flafter}
 \usepackage{forloop}
@@ -61,8 +63,9 @@
 \titleformat*{\subsubsection}{\small\bfseries\sffamily}
 \titleformat{\chapter}[hang]{\normalfont\Huge\bfseries\sffamily}{\thechapter \hspace{20pt}}{0pt}{\Huge}[{\titlerule[1pt]}]
 
-\sisetup{separate-uncertainty}
+\sisetup{separate-uncertainty, exponent-product=\cdot}
 \newcommand{\s}[1]{\mathrm{#1}}
+\newcommand{\unitbf}[1]{$\mathbf{\unit[propagate-math-font=true]{#1}}$}
 
 \fancypagestyle{plain}{
     \fancyhf{}
@@ -121,6 +124,9 @@
 \ctikzset{tripoles/mos style=arrows}
 \ctikzset{tripoles/pmos style/nocircle}
 
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{B}[1]{>{\centering\arraybackslash}b{#1}}
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 \newcommand{\tableheading}[1]{\bf{#1}}
 \NewExpandableDocumentCommand\tablegapx{m}{\noalign{\vskip #1}}
@@ -148,6 +154,15 @@
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
 
+\ExplSyntaxOn
+\NewDocumentCommand{\stringgettoken}{mmm}{
+    \str_set:Nn \c_index {#3}
+    \seq_set_split:Nnn \l_tokens {#2} {#1}
+    \seq_remove_all:Nn \l_tokens {}
+    \seq_item:Nn \l_tokens {\c_index}
+}
+\ExplSyntaxOff
+
 % Git hash extraction
 \IfFileExists{.git/HEAD}{
     \CatchFileDef{\headfull}{.git/HEAD}{}
@@ -170,7 +185,8 @@
         linktoc=all,
         linkcolor=black,
         citecolor=black,
-        urlcolor=blue,
+        urlcolor=black,
+        bookmarksnumbered=true,
     }
 \else
     \hypersetup{
