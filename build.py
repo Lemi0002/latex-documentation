@@ -21,7 +21,6 @@ def build_tex(file_name_source: str, file_name_target: str, file_source: str, fi
 
 def build_py(file_name_source: str, file_name_target: str, file_source: str, file_target: str, directory: str) -> None:
     subprocess.run(['python', '-m', f'{directory}.{file_name_source.replace('.py', '')}'], check=True)
-    os.path.basename
 
 
 @dataclass
