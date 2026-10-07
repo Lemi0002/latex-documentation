@@ -13,9 +13,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Install packages
         run: |
+          sudo apt-get update
           sudo apt-get install snapd inkscape fonts-linuxlibertine
           sudo snap install tectonic
-          sudo pip install matplotlib
+          python -m venv python-venv
+          source python-venv/bin/activate
+          python build.py --requirements
       - name: Build
         run: |
           python build.py
